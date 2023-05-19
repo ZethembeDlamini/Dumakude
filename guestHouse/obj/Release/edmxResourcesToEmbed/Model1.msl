@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dumakudeDbModelStoreContainer" CdmEntityContainer="dumakudeDBEntities1">
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galleries">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Gallery">
+        <MappingFragment StoreEntitySet="Gallery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roomBooks">
+      <EntityTypeMapping TypeName="dumakudeDbModel.roomBook">
+        <MappingFragment StoreEntitySet="roomBook">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="checkIn" ColumnName="checkIn" />
+          <ScalarProperty Name="checkOut" ColumnName="checkOut" />
+          <ScalarProperty Name="numberOfPeople" ColumnName="numberOfPeople" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="roomType" ColumnName="roomType" />
+          <ScalarProperty Name="roomDescription" ColumnName="roomDescription" />
+          <ScalarProperty Name="noOfBeds" ColumnName="noOfBeds" />
+          <ScalarProperty Name="availability" ColumnName="availability" />
+          <ScalarProperty Name="roomNo" ColumnName="roomNo" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonials">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Testimonial">
+        <MappingFragment StoreEntitySet="Testimonials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="stars" ColumnName="stars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Texts">
+      <EntityTypeMapping TypeName="dumakudeDbModel.Text">
+        <MappingFragment StoreEntitySet="Text">
+          <ScalarProperty Name="text7" ColumnName="text7" />
+          <ScalarProperty Name="text6" ColumnName="text6" />
+          <ScalarProperty Name="text5" ColumnName="text5" />
+          <ScalarProperty Name="text4" ColumnName="text4" />
+          <ScalarProperty Name="text3" ColumnName="text3" />
+          <ScalarProperty Name="text2" ColumnName="text2" />
+          <ScalarProperty Name="text1" ColumnName="text1" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

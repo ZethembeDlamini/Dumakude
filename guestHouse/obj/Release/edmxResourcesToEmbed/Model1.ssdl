@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dumakudeDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="message" Type="nvarchar(max)" />
+    <Property Name="subject" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomNumber" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roomBook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="phoneNumber" Type="nvarchar(max)" />
+    <Property Name="checkIn" Type="nvarchar(max)" />
+    <Property Name="checkOut" Type="nvarchar(max)" />
+    <Property Name="numberOfPeople" Type="int" />
+    <Property Name="comments" Type="nvarchar(max)" />
+    <Property Name="RoomID" Type="int" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roomType" Type="nvarchar(max)" />
+    <Property Name="roomDescription" Type="nvarchar(max)" />
+    <Property Name="noOfBeds" Type="int" />
+    <Property Name="availability" Type="nvarchar(max)" />
+    <Property Name="roomNo" Type="nchar" MaxLength="10" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="Testimonials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="avatar" Type="nvarchar(max)" />
+    <Property Name="comment" Type="nvarchar(max)" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="stars" Type="int" />
+  </EntityType>
+  <EntityType Name="Text">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="text1" Type="nvarchar(max)" />
+    <Property Name="text2" Type="nvarchar(max)" />
+    <Property Name="text3" Type="nvarchar(max)" />
+    <Property Name="text4" Type="nvarchar(max)" />
+    <Property Name="text5" Type="nvarchar(max)" />
+    <Property Name="text6" Type="nvarchar(max)" />
+    <Property Name="text7" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_RoomID">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+    <End Role="roomBook" Type="Self.roomBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="roomBook">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dumakudeDbModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roomBook" EntityType="Self.roomBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Testimonials" EntityType="Self.Testimonials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Text" EntityType="Self.Text" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RoomID" Association="Self.FK_RoomID">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="roomBook" EntitySet="roomBook" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
