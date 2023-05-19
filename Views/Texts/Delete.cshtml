@@ -1,0 +1,80 @@
+﻿@model guestHouse.Text
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Text</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.text1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text7)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

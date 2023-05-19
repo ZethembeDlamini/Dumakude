@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<style>
+
+    body {
+        background: #eee;
+        margin-top: 20px;
+    }
+
+    .text-danger strong {
+        color: #9f181c;
+    }
+
+    .receipt-main {
+        background: #ffffff none repeat scroll 0 0;
+        border-bottom: 12px solid #333333;
+        border-top: 12px solid #9f181c;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 40px 30px !important;
+        position: relative;
+        box-shadow: 0 1px 21px #acacac;
+        color: #333333;
+        font-family: open sans;
+    }
+
+        .receipt-main p {
+            color: #333333;
+            font-family: open sans;
+            line-height: 1.42857;
+        }
+
+    .receipt-footer h1 {
+        font-size: 15px;
+        font-weight: 400 !important;
+        margin: 0 !important;
+    }
+
+    .receipt-main::after {
+        background: #414143 none repeat scroll 0 0;
+        content: "";
+        height: 5px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -13px;
+    }
+
+    .receipt-main thead {
+        background: #414143 none repeat scroll 0 0;
+    }
+
+        .receipt-main thead th {
+            color: #fff;
+        }
+
+    .receipt-right h5 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 7px 0;
+    }
+
+    .receipt-right p {
+        font-size: 12px;
+        margin: 0px;
+    }
+
+        .receipt-right p i {
+            text-align: center;
+            width: 18px;
+        }
+
+    .receipt-main td {
+        padding: 9px 20px !important;
+    }
+
+    .receipt-main th {
+        padding: 13px 20px !important;
+    }
+
+    .receipt-main td {
+        font-size: 13px;
+        font-weight: initial !important;
+    }
+
+        .receipt-main td p:last-child {
+            margin: 0;
+            padding: 0;
+        }
+
+        .receipt-main td h2 {
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+    .receipt-header-mid .receipt-left h1 {
+        font-weight: 100;
+        margin: 34px 0 0;
+        text-align: right;
+        text-transform: uppercase;
+    }
+
+    .receipt-header-mid {
+        margin: 24px 0;
+        overflow: hidden;
+    }
+
+    #container {
+        background-color: #dcdcdc;
+    }
+</style>
+
+
+<div class="col-md-12">
+    <div class="row">
+
+        <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="receipt-header">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="receipt-left">
+                            <img class="img-responsive" alt="iamgurdeeposahan" src="~/image/lg.jpg" style="width: 180px; border-radius: 10px;">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                        <div class="receipt-right">
+                            <h5>Invoice</h5>
+                            <p>Date: @DateTime.Now </p>
+                            <p>Customer ID: </p>
+                            <p>Purchase Order#: </p>
+                            <p>Payment Due by: @Model.checkIn</p>
+                            <br /><br />
+                            <p>Capitec Bank <br /> Account No: 1689361024 <br /> Branch Code: 470010 <br /> Linked Cell No: 076 472 3792 </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="receipt-header receipt-header-mid">
+                    <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                        <div class="receipt-right">
+                            <h5>Bill To: </h5>
+                            <p><b />Name : @Model.name</p>
+                            <p><b />Email : @Model.email </p>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div class="receipt-left">
+                            <h3>INVOICE # 102</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Line Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9">Check In : @Model.checkIn</td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9">Check Out: @Model.checkOut </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9">Rooms: </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i></td>
+                        </tr>
+                        <tr>
+                            @{ DateTime startDate = DateTime.Parse(Model.checkIn);
+                                DateTime endDate = DateTime.Parse(Model.checkOut);
+
+                                TimeSpan timeDifference = endDate - startDate;
+                                int numberOfDays = (int)timeDifference.TotalDays;}
+                            <td class="col-md-9">Nights: </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i>@numberOfDays</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9">Room: 1  </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i>@Model.price</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                <p>
+                                    <strong>Subtotal: </strong>
+                                </p>
+                                <p>
+                                    <strong>Extras*:  </strong>
+                                </p>
+                                <p>
+                                    @{var tax = Model.price  * numberOfDays;}
+                                    <strong>Tax 15%:  </strong>
+                                </p>
+                                <p>
+                                    <strong>Discount: </strong>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <strong><i class="fa fa-inr"></i>@Model.price </strong>
+                                </p>
+                                <p>
+                                    <strong><i class="fa fa-inr"></i> 0</strong>
+                                </p>
+                                <p>
+                                    <strong><i class="fa fa-inr"></i></strong>
+                                </p>
+                                <p>
+                                    <strong><i class="fa fa-inr"></i> 0</strong>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td class="text-right"><h2><strong>Total: </strong></h2></td>
+                            @{ var total = tax;}
+                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>@total </strong></h2></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="receipt-header receipt-header-mid receipt-footer">
+                    <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                        <div class="receipt-right">
+                            <p><b>Special Notes and Instructions :</b></p>
+                            <h5 style="color: rgb(140, 140, 140);">Breakfast and supper provided on request <br /> iscount on rooms of 50% weekly bookingss(7 days) <br /> Thank you foor your business!<br /></h5>
+                            <p>Should you have any queries concerning this invoice, please contact Ndumiso Dumakude on 079 288 3222</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div class="receipt-left">
+                            <p>Make all checks payable to Amanzi Lodge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<a href="@Url.Action("GeneratePdf","Invoice", new {name= Model.name, email = Model.email,checkIn = Model.checkIn, checkOut  = Model.checkOut, price = Model.price})"><h3>Download</h3></a>

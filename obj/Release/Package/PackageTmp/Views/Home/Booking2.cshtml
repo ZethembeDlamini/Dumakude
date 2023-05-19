@@ -1,0 +1,164 @@
+@{ Layout = null; }
+    
+@model List<int>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>Amanzi guest house</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="~/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/vendors/owl-carousel/owl.carousel.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+<body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="@Url.Action("Index","Home")"><h3>Guest House</h3></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Gallery","Home")">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Contact</a></li>
+
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <!--================Header Area =================-->
+    <!--================Breadcrumb Area =================-->
+    <section class="breadcrumb_area">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+        <div class="container">
+            <div class="page-cover text-center">
+                <h2 class="page-cover-tittle">Accomodation</h2>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Accomodation</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <!--================Breadcrumb Area =================-->
+    <!--================ Accomodation Area  =================-->
+    <section class="accomodation_area section_gap">
+        <div class="container">
+            <div class="section_title text-center">
+                <h2 class="title_color">Available Rooms</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+            <div class="row mb_30">
+
+
+              
+
+              
+
+                @if (Model.Count == 0)
+                {
+                    <p>No rooms are available during the selected dates.</p>
+                }
+                else
+                {
+           
+                foreach (var roomNumber in Model)
+                {
+                    foreach (var item in ViewBag.roomsList)
+                    {
+                        if (item.Id == roomNumber )
+                        {
+                                
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="accomodation_item text-center">
+                                    <div class="hotel_img">
+                                        <img src="@item.image" height="250" alt="">
+
+
+                                        <form action="@Url.Action("Form","Home")">
+                                            <input type="hidden" value="@ViewBag.checkIn" name="checkIn" />
+                                            <input type="hidden" value="@ViewBag.checkOut" name="checkOut" />
+                                            <input type="hidden" value="@item.Id" name="roomId" />
+                                            <input type="hidden" value="@item.price" name="price" />
+                                            <button class="btn theme_btn button_hover" type="submit">Book Now</button>
+                                        </form>
+                                    </div>
+                                    <a href="#"><h4 class="sec_h4">@item.roomType</h4></a>
+                                    <h5>R @item.price</h5>
+                                </div>
+                            </div>
+                            break;
+                        }
+                    }
+
+                   
+                }
+            
+                }
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <!--================ Accomodation Area  =================-->
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="border_line"></div>
+            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+                <div class="col-lg-4 col-sm-12 footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="~/js/mail-script.js"></script>
+    <script src="~/js/stellar.js"></script>
+    <script src="~/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+</html>

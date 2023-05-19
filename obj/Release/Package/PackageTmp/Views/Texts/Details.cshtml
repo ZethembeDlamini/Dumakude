@@ -1,0 +1,74 @@
+﻿@model guestHouse.Text
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Text</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.text1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text7)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
